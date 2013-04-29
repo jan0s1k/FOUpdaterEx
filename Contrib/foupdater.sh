@@ -14,7 +14,7 @@ do
  FILE=`cat index | awk "NR==$i" |awk '{print $3;}'`
  CRC=`cat index | awk "NR==$i" |awk '{print $1;}'`
  NOREWRI=`cat index | awk "NR==$i" |awk '{print $4;}'`
- if [ ! -f $FOD/$FILE ] && [ $CRC != 'updater' ] && [ $CRC != 'config' ]
+ if [ ! -f $FOD/$FILE ] && [ $CRC != 'updater' ] && [ $CRC != 'config' ] && [ $CRC = 'always' ]
  then
   wget $SERVER/$FILE --force-directories -nH
  else
